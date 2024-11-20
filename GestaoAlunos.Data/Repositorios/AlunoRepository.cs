@@ -31,13 +31,14 @@ namespace GestaoAlunos.Data.Repositorios
             //where cpf = pCpf; 
 
             return _appDBContext.Aluno.Where(
-                a => a.cpf == pCpf
+                tabelaAluno => tabelaAluno.cpf == pCpf
                 ).FirstOrDefault();
         }
 
-        public Aluno ObterPorId(int id)
+        public Aluno? ObterPorId(int id)
         {
-            throw new NotImplementedException();
+            return _appDBContext.Aluno.Where(
+                aluno => aluno.Id == id).FirstOrDefault();
         }
 
         public IList<Aluno> ObterTodos()

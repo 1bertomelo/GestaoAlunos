@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GestaoAlunos.API.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class AlunoController : ControllerBase
     {
         private readonly IAlunoService _alunoService;
@@ -17,6 +19,7 @@ namespace GestaoAlunos.API.Controllers
         [HttpGet]
         public IActionResult ObterTodosAlunos() {
 
+            
             return Ok(_alunoService.ObterTodos());
         }
 
